@@ -1,7 +1,14 @@
 import itertools
+
+# Creates a file called algs.txt with all the generated algs
+
+# Examples
 # moves = ["R","R'","R2","L","L'","L2","U","U'","U2","B","B'","B2","F","F'","F2","B","B'","B2","M","M'","M2"]
-# lista = list(itertools.combinations_with_replacement(moves,5)) - Does not account for repeats...
+# Using list(itertools.combinations_with_replacement(moves,5)) - Does not account for repeats...
+# Another more complete example list...
 #moves = ["R","R'","R2","U","U'","U2","F","F'","F2","f","f'","f2","L","L'","L2","D","D'","D2","r","r'","r2","l'","l","l2"]
+
+
 moves = ["R","R'","R2","U","U'","U2","F","F'","F2"]
 
 
@@ -12,6 +19,8 @@ lefts = ["L","L'","L2","l'","l","l2"]
 fronts = ["F","F'","F2","f","f'","f2"]
 backs = []
 
+# This creates a list of all combinations of _ moves (including repeats)
+# Using the more complete example list, can only go as high as 5 :(
 lista = list(itertools.product(moves,repeat=8))
 lenlista = len(lista)
 print ("Original List: ", lenlista)
@@ -78,24 +87,3 @@ for alg in newlist:
     f.write("".join(alg))
     f.write("\n")
 f.close()
-
-# lista = list(itertools.product(moves,repeat=5))
-# lenlista = len(lista)
-# print ("Original List: ", lenlista)
-# f = open ('algs.txt','w')
-# newlist = []
-# for alg in lista:
-#     a = list(alg)
-#     out = False
-#     for i in range(len(a)-1):
-#         if a[i][0] == a[i+1][0]:
-#             out = True
-#             break
-#     if (out == False):
-#         newlist.append(a)
-#
-# print ("New List: ", len(newlist))
-# for alg in newlist:
-#     f.write("".join(alg))
-#     f.write("\n")
-# f.close()
